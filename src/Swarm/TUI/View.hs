@@ -137,7 +137,7 @@ replHeight = 10
 
 -- | The error dialog window.
 errorDialog :: Dialog ()
-errorDialog = dialog (Just "Error") Nothing 80
+errorDialog = dialog (Just "Error") (Just (0, [("[Esc] close dialog", ())])) 80
 
 -- | Draw the error dialog window, if it should be displayed right now.
 drawDialog :: UIState -> Widget Name
@@ -161,7 +161,7 @@ drawMenu isPaused viewingBase mode
           Classic -> "Classic"
           Creative -> "Creative"
     globalKeyCmds =
-      [ ("^q", "quit")
+      [ ("Ctr+q", "quit")
       , ("Tab", "cycle panels")
       ]
     keyCmdsFor (Just REPLPanel) =
